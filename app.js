@@ -1168,6 +1168,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('resetBtn').addEventListener('click', showResetModal);
     document.getElementById('summaryResetBtn').addEventListener('click', showResetModal);
+    
+    const summaryBackBtn = document.getElementById('summaryBackBtn');
+    if (summaryBackBtn) {
+        summaryBackBtn.addEventListener('click', () => {
+            navigateTo(steps.length - 1);
+        });
+    }
+    
     document.getElementById('cancelResetBtn').addEventListener('click', hideResetModal);
     
     document.getElementById('confirmResetBtn').addEventListener('click', () => {
@@ -1336,6 +1344,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+        }
+    });
+    
+    // Autosave tooltip click handler for mobile
+    const autosaveStatus = document.getElementById('autosaveStatus');
+    if (autosaveStatus) {
+        autosaveStatus.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                autosaveStatus.classList.toggle('active-tooltip');
+                e.stopPropagation();
+            }
+        });
+    }
+    
+    document.addEventListener('click', () => {
+        const autosaveStatus = document.getElementById('autosaveStatus');
+        if (autosaveStatus) {
+            autosaveStatus.classList.remove('active-tooltip');
         }
     });
 });

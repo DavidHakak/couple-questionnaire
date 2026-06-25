@@ -1086,10 +1086,37 @@ textarea.form-control {
     .autosave-indicator {
         padding: 6px 10px;
         gap: 6px;
+        position: relative;
+        cursor: pointer;
     }
     
     .status-timer {
         display: none !important;
+    }
+    
+    .autosave-indicator.active-tooltip .status-text-container {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background-color: var(--sage-light);
+        border: 1px solid var(--sage-color);
+        padding: 10px 14px;
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+        white-space: nowrap;
+        color: var(--sage-color);
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .autosave-indicator.active-tooltip .status-timer {
+        display: block !important;
+        margin-top: 4px;
+        font-size: 0.78rem;
     }
     .content-viewport {
         padding: 20px 16px;
