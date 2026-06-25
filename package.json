@@ -1,0 +1,13 @@
+{
+  "name": "couple-questionnaire",
+  "version": "1.0.0",
+  "description": "שאלון אינטייק לזוגיות סינרגית",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
