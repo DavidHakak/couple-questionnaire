@@ -600,7 +600,7 @@ function isStepUnlocked(index) {
 }
 
 function navigateTo(index) {
-    if (index < -1 || index > steps.length) return;
+    if (index < -2 || index > steps.length) return;
     
     saveCurrentStepAnswer();
     
@@ -663,18 +663,27 @@ function saveCurrentStepAnswer() {
 
 function renderStep() {
     const welcomeCard = document.getElementById('welcomeScreen');
+    const infoCard = document.getElementById('infoScreen');
     const transitionCard = document.getElementById('categoryTransitionScreen');
     const questionCard = document.getElementById('questionCard');
     const summaryScreen = document.getElementById('summaryScreen');
     const appSidebar = document.getElementById('appSidebar');
     
     welcomeCard.classList.remove('active');
+    if (infoCard) infoCard.classList.remove('active');
     transitionCard.classList.remove('active');
     questionCard.classList.remove('active');
     summaryScreen.classList.remove('active');
     
     if (currentStepIndex === -1) {
         welcomeCard.classList.add('active');
+        appSidebar.style.opacity = '0.3';
+        appSidebar.style.pointerEvents = 'none';
+        return;
+    }
+    
+    if (currentStepIndex === -2) {
+        if (infoCard) infoCard.classList.add('active');
         appSidebar.style.opacity = '0.3';
         appSidebar.style.pointerEvents = 'none';
         return;
@@ -1025,8 +1034,22 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSidebar();
     
     document.getElementById('startBtn').addEventListener('click', () => {
-        navigateTo(0);
+        navigateTo(-2);
     });
+    
+    const backToWelcomeBtn = document.getElementById('backToWelcomeBtn');
+    if (backToWelcomeBtn) {
+        backToWelcomeBtn.addEventListener('click', () => {
+            navigateTo(-1);
+        });
+    }
+    
+    const confirmStartBtn = document.getElementById('confirmStartBtn');
+    if (confirmStartBtn) {
+        confirmStartBtn.addEventListener('click', () => {
+            navigateTo(0);
+        });
+    }
     
     document.getElementById('startCategoryBtn').addEventListener('click', () => {
         navigateTo(currentStepIndex + 1);
