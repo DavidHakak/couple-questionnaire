@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,25 @@
     <!-- Google Fonts - Assistant & Rubik for premium Hebrew typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&family=Rubik:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- html2pdf.js for high-quality RTL-supported PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
+
 <body>
     <!-- App Container -->
     <div class="app-container">
         <!-- Top Navigation / Status Header -->
         <header class="app-header">
             <div class="header-logo">
-                <svg class="heart-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--accent-color)" stroke="var(--accent-color)"/>
+                <svg class="heart-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                        fill="var(--accent-color)" stroke="var(--accent-color)" />
                 </svg>
                 <span class="logo-text">זוגיות סינרגטית</span>
             </div>
@@ -33,7 +40,9 @@
                 </div>
                 <button class="btn btn-text btn-reset" id="resetBtn" title="פרמוט ומחיקת כל התשובות מהזיכרון">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <span>איפוס שאלון</span>
                 </button>
@@ -56,21 +65,28 @@
                 <div class="card card-welcome active" id="welcomeScreen">
                     <h1 class="welcome-title">שאלון אינטייק לזוגיות סינרגית</h1>
                     <div class="welcome-intro">
-                        <p>זוגיות סינרגית רואה בקשר הזוגי מרחב שבו שני אנשים יכולים להיות קרובים, מחוברים ונראים, מבלי לוותר על עצמם.</p>
-                        <p>בלב הגישה נמצאת <strong>"אמנות הגם וגם"</strong> – היכולת להיות אני וגם אנחנו. להיות קרובים וגם עצמאיים. לדבר וגם להקשיב. להיות חזקים וגם פגיעים.</p>
-                        <p>זוגיות טובה אינה דורשת מאף אחד לבטל את עצמו למען הקשר, אלא מאפשרת לשני בני הזוג לצמוח יחד מתוך כבוד, בחירה וחיבור.</p>
-                        <p>מטרת השאלון היא לעזור לי להכיר אותך, את עולמך הפנימי, את הדרך שבה את/ה חווה את הקשר הזוגי, ואת התקוות והאתגרים שאת/ה מביא/ה לתהליך.</p>
+                        <p>זוגיות סינרגית רואה בקשר הזוגי מרחב שבו שני אנשים יכולים להיות קרובים, מחוברים ונראים, מבלי
+                            לוותר על עצמם.</p>
+                        <p>בלב הגישה נמצאת <strong>"אמנות הגם וגם"</strong> – היכולת להיות אני וגם אנחנו. להיות קרובים
+                            וגם עצמאיים. לדבר וגם להקשיב. להיות חזקים וגם פגיעים.</p>
+                        <p>זוגיות טובה אינה דורשת מאף אחד לבטל את עצמו למען הקשר, אלא מאפשרת לשני בני הזוג לצמוח יחד
+                            מתוך כבוד, בחירה וחיבור.</p>
+                        <p>מטרת השאלון היא לעזור לי להכיר אותך, את עולמך הפנימי, את הדרך שבה את/ה חווה את הקשר הזוגי,
+                            ואת התקוות והאתגרים שאת/ה מביא/ה לתהליך.</p>
                         <p class="recommendation-note">
-                            🌱 <strong>המלצה לתהליך:</strong> מומלץ למצוא פינה שקטה, לפנות זמן ייעודי (כ-25-30 דקות), לשבת ברוגע ולענות על השאלות מתוך קשב פנימי, חיבור ופתיחות.
+                            🌱 <strong>המלצה לתהליך:</strong> מומלץ למצוא פינה שקטה, לפנות זמן ייעודי (כ-25-30 דקות),
+                            לשבת ברוגע ולענות על השאלות מתוך קשב פנימי, חיבור ופתיחות.
                         </p>
-                        <p class="highlight-text">מומלץ לענות בחופשיות, בכנות ובפתיחות, אך אין חובה לענות על כל השאלות. בחר/י את מידת הפתיחות שנכונה לך.</p>
+                        <p class="highlight-text">מומלץ לענות בחופשיות, בכנות ובפתיחות, אך אין חובה לענות על כל השאלות.
+                            בחר/י את מידת הפתיחות שנכונה לך.</p>
                         <p class="privacy-note">המידע שתשתף/י יישמר כמובן בסודיות מקצועית.</p>
                     </div>
                     <div class="welcome-action">
                         <button class="btn btn-primary btn-lg" id="startBtn">
                             <span>בואו נתחיל</span>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -83,52 +99,62 @@
                         <div class="info-grid">
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-accent">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-accent">
                                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                     </svg>
                                     <h3>פרטיות ואבטחת מידע</h3>
                                 </div>
-                                <p>המידע נשמר אך ורק בדפדפן ובמכשיר הנוכחי שלך ואינו נשלח לאף שרת חיצוני. אין צורך לדאוג – הפרטיות שלך מובטחת במלואה.</p>
+                                <p>המידע נשמר אך ורק בדפדפן ובמכשיר הנוכחי שלך ואינו נשלח לאף שרת חיצוני. אין צורך לדאוג
+                                    – הפרטיות שלך מובטחת במלואה.</p>
                             </div>
-                            
+
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-danger">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-danger">
                                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                                         <line x1="12" y1="18" x2="12.01" y2="18"></line>
                                     </svg>
                                     <h3>אין להחליף מכשירים</h3>
                                 </div>
-                                <p>מאחר שהתשובות נשמרות מקומית בלבד, לא ניתן להחליף מכשיר או דפדפן במהלך מילוי השאלון. עליך להשלים את השאלון מאותו המכשיר שבו התחלת.</p>
+                                <p>מאחר שהתשובות נשמרות מקומית בלבד, לא ניתן להחליף מכשיר או דפדפן במהלך מילוי השאלון.
+                                    עליך להשלים את השאלון מאותו המכשיר שבו התחלת.</p>
                             </div>
 
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-sage">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-sage">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
                                     <h3>שמירה ל-48 שעות בלבד</h3>
                                 </div>
-                                <p>הטיוטה נשמרת באופן זמני בלבד למשך 48 שעות מהשמירה האחרונה, ולאחר מכן תימחק לצמיתות מהדפדפן כדי להגן על פרטיותך.</p>
+                                <p>הטיוטה נשמרת באופן זמני בלבד למשך 48 שעות מהשמירה האחרונה, ולאחר מכן תימחק לצמיתות
+                                    מהדפדפן כדי להגן על פרטיותך.</p>
                             </div>
 
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-accent">
-                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-accent">
+                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z">
+                                        </path>
                                         <polyline points="17 21 17 13 7 13 7 21"></polyline>
                                         <polyline points="7 3 7 8 15 8"></polyline>
                                     </svg>
                                     <h3>מחיקה ואיפוס בכל עת</h3>
                                 </div>
-                                <p>באפשרותך למחוק לחלוטין ולאפס את כל התשובות השמורות בכל רגע נתון על ידי לחיצה על כפתור "איפוס שאלון" המופיע בראש המסך.</p>
+                                <p>באפשרותך למחוק לחלוטין ולאפס את כל התשובות השמורות בכל רגע נתון על ידי לחיצה על כפתור
+                                    "איפוס שאלון" המופיע בראש המסך.</p>
                             </div>
 
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-sage">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-sage">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                         <polyline points="14 2 14 8 20 8"></polyline>
                                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -137,31 +163,38 @@
                                     </svg>
                                     <h3>הורדת סיכום PDF</h3>
                                 </div>
-                                <p>בסיום מילוי השאלון, תוכל/י להוריד את התשובות כקובץ PDF מעוצב ישירות למחשב או לנייד, על מנת לשלוח אותו לשירה או ליצחק.</p>
+                                <p>בסיום מילוי השאלון, תוכל/י להוריד את התשובות כקובץ PDF מעוצב ישירות למחשב או לנייד,
+                                    על מנת לשלוח אותו אליי.</p>
                             </div>
 
                             <div class="info-card-item">
                                 <div class="info-card-header">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon text-accent">
-                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="info-icon text-accent">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+                                        </path>
                                     </svg>
                                     <h3>המלצות למילוי</h3>
                                 </div>
-                                <p>מומלץ שכל אחד מבני הזוג ימלא את השאלון בנפרד (על מכשיר נפרד) ובמקום שקט, על מנת לאפשר מרחב אישי וכנה לביטוי רגשותיכם.</p>
+                                <p>מומלץ שכל אחד מבני הזוג ימלא את השאלון בנפרד (על מכשיר נפרד) ובמקום שקט, על מנת לאפשר
+                                    מרחב אישי וכנה לביטוי רגשותיכם.</p>
                             </div>
                         </div>
                     </div>
                     <div class="welcome-action" style="display: flex; gap: 16px; justify-content: center;">
                         <button class="btn btn-outline btn-lg" id="backToWelcomeBtn">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <span>חזור</span>
                         </button>
                         <button class="btn btn-primary btn-lg" id="confirmStartBtn">
                             <span>הבנתי, בואו נתחיל</span>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -171,12 +204,14 @@
                 <div class="card card-transition" id="categoryTransitionScreen">
                     <span class="category-badge">קטגוריה הבאה</span>
                     <h2 class="transition-category-name" id="transitionCategoryName">שם הקטגוריה</h2>
-                    <p class="transition-description" id="transitionCategoryDesc">תיאור קצר של הקטגוריה יופיע כאן כדי להכין את המשתמש מנטלית לשאלות הבאות.</p>
+                    <p class="transition-description" id="transitionCategoryDesc">תיאור קצר של הקטגוריה יופיע כאן כדי
+                        להכין את המשתמש מנטלית לשאלות הבאות.</p>
                     <div class="transition-action">
                         <button class="btn btn-primary btn-lg" id="startCategoryBtn">
                             <span>המשך לשאלות</span>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -206,8 +241,9 @@
                     <!-- Slide Navigation -->
                     <div class="question-footer">
                         <button class="btn btn-secondary" id="prevBtn" disabled>
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <span>הקודם</span>
                         </button>
@@ -216,8 +252,9 @@
                         </button>
                         <button class="btn btn-primary" id="nextBtn">
                             <span>הבא</span>
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -227,17 +264,21 @@
                 <div class="card card-summary" id="summaryScreen">
                     <div class="summary-success-header">
                         <div class="success-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h2 class="summary-title">השאלון הושלם בהצלחה!</h2>
                         <p class="summary-subtitle">תודה על השיתוף והפתיחות. לפניכם סיכום התשובות שעניתם.</p>
                         <div class="summary-actions">
                             <button class="btn btn-primary btn-lg" id="downloadPdfBtn">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span>הורד סיכום כ-PDF מעוצב</span>
                             </button>
@@ -261,7 +302,7 @@
                             <div class="summary-sections-container" id="summarySections">
                                 <!-- Groups of categories with answers -->
                             </div>
-                            
+
                             <!-- Footer for PDF only -->
                             <div class="pdf-only-footer">
                                 <p>זוגיות סינרגטית • שמירה על סודיות מקצועית</p>
@@ -277,7 +318,8 @@
     <div class="modal-overlay" id="resetModal">
         <div class="modal-card">
             <h3 class="modal-title">האם אתה בטוח שברצונך לאפס?</h3>
-            <p class="modal-text">פעולה זו תמחק לחלוטין את כל התשובות ששמרת מהזיכרון של הדפדפן ולא ניתן יהיה לשחזר אותן.</p>
+            <p class="modal-text">פעולה זו תמחק לחלוטין את כל התשובות ששמרת מהזיכרון של הדפדפן ולא ניתן יהיה לשחזר אותן.
+            </p>
             <div class="modal-actions">
                 <button class="btn btn-danger" id="confirmResetBtn">כן, מחק הכל</button>
                 <button class="btn btn-outline" id="cancelResetBtn">ביטול</button>
@@ -287,4 +329,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
