@@ -789,6 +789,16 @@ textarea.form-control {
     border-radius: var(--radius-sm);
 }
 
+.btn-info {
+    color: var(--text-muted);
+}
+
+.btn-info:hover {
+    color: var(--accent-color);
+    background-color: var(--accent-light);
+    border-radius: var(--radius-sm);
+}
+
 .btn-danger {
     background-color: var(--danger-color);
     color: #fff;

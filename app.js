@@ -401,6 +401,7 @@ const questions = [
 let steps = [];
 let currentStepIndex = -1; // -1 represents welcome screen
 let maxVisitedStep = -1;
+let lastActiveStepIndex = 0;
 let answers = {};
 let saveTimeout = null;
 let countdownInterval = null;
@@ -475,6 +476,7 @@ function loadFromLocalStorage() {
         // Resume at the last visited step if we were in the middle
         if (maxVisitedStep > -1) {
             currentStepIndex = maxVisitedStep;
+            lastActiveStepIndex = maxVisitedStep;
         }
         
         // Start countdown
@@ -494,6 +496,7 @@ function clearLocalStorage() {
     answers = {};
     maxVisitedStep = -1;
     currentStepIndex = -1;
+    lastActiveStepIndex = 0;
     showAutosaveStatus('empty');
 }
 
@@ -604,6 +607,10 @@ function navigateTo(index) {
     
     saveCurrentStepAnswer();
     
+    if (currentStepIndex >= 0 && currentStepIndex <= steps.length) {
+        lastActiveStepIndex = currentStepIndex;
+    }
+    
     currentStepIndex = index;
     
     if (currentStepIndex > maxVisitedStep) {
@@ -686,6 +693,19 @@ function renderStep() {
         if (infoCard) infoCard.classList.add('active');
         appSidebar.style.opacity = '0.3';
         appSidebar.style.pointerEvents = 'none';
+        
+        // Dynamically update confirmStartBtn text based on whether the questionnaire has started
+        const confirmStartBtn = document.getElementById('confirmStartBtn');
+        if (confirmStartBtn) {
+            const btnText = confirmStartBtn.querySelector('span');
+            if (btnText) {
+                if (maxVisitedStep >= 0) {
+                    btnText.innerText = 'חזור למילוי השאלון';
+                } else {
+                    btnText.innerText = 'הבנתי, בואו נתחיל';
+                }
+            }
+        }
         return;
     }
     
@@ -931,6 +951,32 @@ function renderSidebar() {
     const sidebarNav = document.getElementById('sidebarNav');
     sidebarNav.innerHTML = '';
     
+    // Add "Instructions & Explanations" link at the top of the sidebar
+    const infoLinkDiv = document.createElement('div');
+    infoLinkDiv.className = 'nav-category';
+    if (currentStepIndex === -2) {
+        infoLinkDiv.classList.add('active');
+    }
+    
+    const infoHeader = document.createElement('div');
+    infoHeader.className = 'nav-category-header';
+    infoHeader.style.cursor = 'pointer';
+    infoHeader.innerHTML = `
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>מבוא והנחיות לשאלון</span>
+    `;
+    
+    infoHeader.addEventListener('click', () => {
+        navigateTo(-2);
+    });
+    
+    infoLinkDiv.appendChild(infoHeader);
+    sidebarNav.appendChild(infoLinkDiv);
+    
     categories.forEach((cat, catIdx) => {
         const catQuestions = questions.filter(q => q.category === cat.id);
         const catStepIndex = steps.findIndex(s => s.type === 'transition' && s.category.id === cat.id);
@@ -1037,6 +1083,13 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateTo(-2);
     });
     
+    const infoBtn = document.getElementById('infoBtn');
+    if (infoBtn) {
+        infoBtn.addEventListener('click', () => {
+            navigateTo(-2);
+        });
+    }
+    
     const backToWelcomeBtn = document.getElementById('backToWelcomeBtn');
     if (backToWelcomeBtn) {
         backToWelcomeBtn.addEventListener('click', () => {
@@ -1047,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmStartBtn = document.getElementById('confirmStartBtn');
     if (confirmStartBtn) {
         confirmStartBtn.addEventListener('click', () => {
-            navigateTo(0);
+            navigateTo(lastActiveStepIndex);
         });
     }
     
