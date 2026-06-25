@@ -217,7 +217,14 @@
                     <h2 class="transition-category-name" id="transitionCategoryName">שם הקטגוריה</h2>
                     <p class="transition-description" id="transitionCategoryDesc">תיאור קצר של הקטגוריה יופיע כאן כדי
                         להכין את המשתמש מנטלית לשאלות הבאות.</p>
-                    <div class="transition-action">
+                    <div class="transition-action" style="display: flex; gap: 16px; justify-content: center;">
+                        <button class="btn btn-outline btn-lg" id="prevCategoryBtn">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>חזור</span>
+                        </button>
                         <button class="btn btn-primary btn-lg" id="startCategoryBtn">
                             <span>המשך לשאלות</span>
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"

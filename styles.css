@@ -1055,9 +1055,42 @@ textarea.form-control {
     }
     
     .app-header {
-        padding: 0 20px;
+        padding: 0 12px;
+        height: 60px;
     }
     
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .header-controls {
+        gap: 6px;
+    }
+    
+    .btn-info span,
+    .btn-reset span {
+        display: none;
+    }
+    
+    .btn-info,
+    .btn-reset {
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .autosave-indicator {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+    
+    .status-timer {
+        display: none !important;
+    }
     .content-viewport {
         padding: 20px 16px;
     }
@@ -1102,6 +1135,22 @@ textarea.form-control {
     
     .summary-actions .btn {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .autosave-indicator {
+        padding: 0;
+        width: 28px;
+        height: 28px;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .autosave-indicator .status-text-container {
+        display: none;
+    }
+    .logo-text {
+        font-size: 1rem;
     }
 }
 

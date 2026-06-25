@@ -602,10 +602,17 @@ function isStepUnlocked(index) {
     return index <= maxVisitedStep + 1;
 }
 
-function navigateTo(index) {
+function navigateTo(index, isSkip = false) {
     if (index < -2 || index > steps.length) return;
     
-    saveCurrentStepAnswer();
+    if (isSkip) {
+        const step = steps[currentStepIndex];
+        if (step && step.type === 'question') {
+            answers[step.question.id] = '';
+        }
+    } else {
+        saveCurrentStepAnswer();
+    }
     
     if (currentStepIndex >= 0 && currentStepIndex <= steps.length) {
         lastActiveStepIndex = currentStepIndex;
@@ -654,12 +661,16 @@ function saveCurrentStepAnswer() {
                 choice: choice,
                 details: choice === 'yes' ? details : ''
             };
+        } else {
+            answers[q.id] = '';
         }
     } else if (q.type === 'scale') {
         const selectedDot = document.querySelector('.scale-dot.selected');
         const value = selectedDot ? parseInt(selectedDot.getAttribute('data-value')) : '';
         if (value) {
             answers[q.id] = value;
+        } else {
+            answers[q.id] = '';
         }
     }
 }
@@ -805,22 +816,36 @@ function renderStep() {
             cards.forEach(card => {
                 card.addEventListener('click', (e) => {
                     const selectedChoice = card.getAttribute('data-choice');
+                    const isAlreadySelected = card.classList.contains('selected');
                     
                     cards.forEach(c => c.classList.remove('selected'));
-                    card.classList.add('selected');
                     
                     const detailsContainer = document.getElementById('detailsContainer');
-                    if (selectedChoice === 'yes') {
-                        detailsContainer.classList.add('active');
-                        setTimeout(() => document.getElementById('detailsInput').focus(), 150);
+                    if (isAlreadySelected) {
+                        if (detailsContainer) {
+                            detailsContainer.classList.remove('active');
+                            const detailsInput = document.getElementById('detailsInput');
+                            if (detailsInput) detailsInput.value = '';
+                        }
                     } else {
-                        detailsContainer.classList.remove('active');
-                        setTimeout(() => {
-                            const currentCardChoice = document.querySelector('.yes-no-card.selected');
-                            if (currentCardChoice && currentCardChoice.getAttribute('data-choice') === 'no') {
-                                navigateTo(currentStepIndex + 1);
+                        card.classList.add('selected');
+                        if (selectedChoice === 'yes') {
+                            if (detailsContainer) {
+                                detailsContainer.classList.add('active');
+                                setTimeout(() => {
+                                    const detailsInput = document.getElementById('detailsInput');
+                                    if (detailsInput) detailsInput.focus();
+                                }, 150);
                             }
-                        }, 500);
+                        } else {
+                            if (detailsContainer) detailsContainer.classList.remove('active');
+                            setTimeout(() => {
+                                const currentCardChoice = document.querySelector('.yes-no-card.selected');
+                                if (currentCardChoice && currentCardChoice.getAttribute('data-choice') === 'no') {
+                                    navigateTo(currentStepIndex + 1);
+                                }
+                            }, 500);
+                        }
                     }
                     
                     saveCurrentStepAnswer();
@@ -846,15 +871,23 @@ function renderStep() {
             const dots = qInputArea.querySelectorAll('.scale-dot');
             dots.forEach(dot => {
                 dot.addEventListener('click', () => {
+                    const isAlreadySelected = dot.classList.contains('selected');
+                    
                     dots.forEach(d => d.classList.remove('selected'));
-                    dot.classList.add('selected');
                     
-                    saveCurrentStepAnswer();
-                    triggerAutosave();
-                    
-                    setTimeout(() => {
-                        navigateTo(currentStepIndex + 1);
-                    }, 400);
+                    if (!isAlreadySelected) {
+                        dot.classList.add('selected');
+                        
+                        saveCurrentStepAnswer();
+                        triggerAutosave();
+                        
+                        setTimeout(() => {
+                            navigateTo(currentStepIndex + 1);
+                        }, 400);
+                    } else {
+                        saveCurrentStepAnswer();
+                        triggerAutosave();
+                    }
                 });
             });
         }
@@ -1108,6 +1141,17 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateTo(currentStepIndex + 1);
     });
     
+    const prevCategoryBtn = document.getElementById('prevCategoryBtn');
+    if (prevCategoryBtn) {
+        prevCategoryBtn.addEventListener('click', () => {
+            if (currentStepIndex > 0) {
+                navigateTo(currentStepIndex - 1);
+            } else if (currentStepIndex === 0) {
+                navigateTo(-2);
+            }
+        });
+    }
+    
     document.getElementById('prevBtn').addEventListener('click', () => {
         if (currentStepIndex > 0) {
             navigateTo(currentStepIndex - 1);
@@ -1115,11 +1159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.getElementById('skipBtn').addEventListener('click', () => {
-        const step = steps[currentStepIndex];
-        if (step.type === 'question') {
-            answers[step.question.id] = '';
-        }
-        navigateTo(currentStepIndex + 1);
+        navigateTo(currentStepIndex + 1, true);
     });
     
     document.getElementById('nextBtn').addEventListener('click', () => {
